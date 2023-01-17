@@ -38,11 +38,8 @@ def main():
     if trace_file is not None:
         st.header("Example of Trace Seismogram")
         trace = read(trace_file)
-        fig = plt.figure(figsize=(15,5))
-        plt.plot(trace[0].data, label='Trace Example', color='black')
-        plt.legend()
-        st.pyplot(fig)
-
+        st.pyplot(trace[0].plot())
+       
         if st.button('Predict'):
             trace_n = trace.normalize()
             df = seismogram.make_parameters(trace_n, 2, 30, 40)
