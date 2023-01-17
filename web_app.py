@@ -59,7 +59,7 @@ def main():
             st.markdown('*Note: The arrival of the wave-P is determined based on the highest value of the machine learning output*')
             
         if st.button('Predict with filterisasi Trace'):
-            trace_n = preprocess(trace_n, 1, 3)
+            trace_n = seismogram.preprocess(trace, 1, 3)
             df = seismogram.make_parameters(trace_n, 2, 30, 40)
             df = np.resize(df, (df.shape[0], 1, df.shape[1]))
             predict = savedModel.predict(df)
